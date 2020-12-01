@@ -13,11 +13,12 @@ let LoginPage = (props) => {
         props.updateEnteredLogin(newLoginElement.current.value);
     }
     let Login = () => {
+
     }
 
-    /*window.addEventListener('deviceproximity', function (event) {
+    {window.addEventListener('deviceproximity', function (event) {
         console.log("value: " + event.value, "max: " + event.max, "min: " + event.min);
-    })*/
+    })}
 
     return (
         <div>
@@ -39,6 +40,8 @@ let LoginPage = (props) => {
                            props.mouseOut()
                        }}
                        type={props.showPassword ? 'text' : 'password'}
+
+                       /**/
                        ref={newPasswordElement} value={props.enteredPassword} placeholder={'Введите пароль'}/>
             </div>
             <button onClick={Login}>Login</button>
