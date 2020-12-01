@@ -1,0 +1,7 @@
+@media print {
+    .passwordArea {
+    //display: none;
+    //overflow: hidden;
+        display: none;
+    }
+}
