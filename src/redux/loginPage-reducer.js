@@ -3,6 +3,7 @@ const UPDATE_ENTERED_PASSWORD = 'UPDATE-ENTERED-PASSWORD';
 const UPDATE_ENTERED_LOGIN = 'UPDATE-ENTERED-LOGIN';
 const SHOW_PASSWORD = 'SHOW_PASSWORD';
 const HIDE_PASSWORD = 'HIDE_PASSWORD';
+const REMOVE_ENTERED_PASSWORD = 'REMOVE_ENTERED_PASSWORD';
 
 let initialState = {
     users: [
@@ -10,7 +11,10 @@ let initialState = {
     ],
     enteredPassword: '',
     enteredLogin: '',
-    showPassword: false
+    showingPassword: false,
+    selectionStart: 0,
+    numOfPasswordItems: 0,
+    numOfLoginItems: 0
 }
 
 const loginPageReducer = (state = initialState, action) => {
@@ -18,32 +22,39 @@ const loginPageReducer = (state = initialState, action) => {
         case UPDATE_ENTERED_LOGIN:
             return {
                 ...state,
-                enteredLogin: action.enteredLogin
+                enteredLogin: action.enteredLogin,
             }
         case UPDATE_ENTERED_PASSWORD:
             return {
                 ...state,
-                enteredPassword: action.enteredPassword
+                enteredPassword: action.enteredPassword,
+                selectionStart: action.position,
             }
         case SHOW_PASSWORD:
             return {
                 ...state,
-                showPassword: true
+                showingPassword: true,
             }
         case HIDE_PASSWORD:
             return {
                 ...state,
-                showPassword: false
+                showingPassword: false,
+            }
+        case REMOVE_ENTERED_PASSWORD:
+            return{
+                ...state,
+                enteredPassword: ''
             }
         default:
             return state;
     }
 }
 
-export const loginAC = () => ({type: LOGIN});
-export const updateEnteredPasswordAC = (text) => ({type: UPDATE_ENTERED_PASSWORD, enteredPassword: text});
-export const updateEnteredLoginAC = (text) => ({type: UPDATE_ENTERED_LOGIN, enteredLogin: text});
-export const showPasswordAC = () => ({type: SHOW_PASSWORD});
-export const hidePasswordAC = () => ({type: HIDE_PASSWORD});
+export const login = () => ({type: LOGIN});
+export const updateEnteredPassword = (text, position) => ({type: UPDATE_ENTERED_PASSWORD, enteredPassword: text, position});
+export const updateEnteredLogin = (text) => ({type: UPDATE_ENTERED_LOGIN, enteredLogin: text});
+export const showPassword = () => ({type: SHOW_PASSWORD});
+export const hidePassword = () => ({type: HIDE_PASSWORD});
+export const removeEnteredPassword = () => ({type: REMOVE_ENTERED_PASSWORD});
 
 export default loginPageReducer;
