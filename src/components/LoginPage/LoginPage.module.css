@@ -1,7 +1,33 @@
-@media print {
-    .passwordArea {
-    //display: none;
-    //overflow: hidden;
-        display: none;
-    }
+@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 }
+.loginBlock{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    width: 280px;
+    min-height: 200px;
+}
+.loginButtonsContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 20px;
+}
+.loginButton{
+    width: 120px;
+    min-height: 30px;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    font-size: 14px;
+}
+

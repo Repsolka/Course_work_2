@@ -1,5 +1,3 @@
-import {act} from "@testing-library/react";
-
 const UPDATE_ENTERED_PASSWORD = 'UPDATE-ENTERED-PASSWORD';
 const UPDATE_ENTERED_LOGIN = 'UPDATE-ENTERED-LOGIN';
 const SHOW_PASSWORD = 'SHOW_PASSWORD';
@@ -9,12 +7,22 @@ const UPDATE_SELECTION_START = 'UPDATE_SELECTION_START';
 const UPDATE_TABINDEX = 'UPDATE_TABINDEX'
 
 let initialState = {
-    enteredPassword: '',
-    enteredLogin: '',
-    showingPassword: false,
+    LoginData: {
+        passwordData: {
+            field: 'Password',
+            enteredPassword: 'fsdaf',
+            showingPassword: false,
+            numOfPasswordItems: 0,
+            placeholder: 'Enter your password'
+        },
+        loginData: {
+            field: 'Login',
+            enteredLogin: '',
+            numOfLoginItems: 0,
+            placeholder: 'Enter your login'
+        }
+    },
     selectionStart: 0,
-    numOfPasswordItems: 0,
-    numOfLoginItems: 0,
     tabIndex: 0
 }
 const loginPageReducer = (state = initialState, action) => {

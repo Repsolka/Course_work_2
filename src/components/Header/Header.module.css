@@ -1,0 +1,13 @@
+#headerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 4vh;
+    background-color: #F5F4F8;
+    color: rgba(13, 5, 37, 0.95);
+}
+#headerContent{
+    max-width: 80vw;
+    margin: 1vh auto;
+}

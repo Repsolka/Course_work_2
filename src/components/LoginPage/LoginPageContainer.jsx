@@ -48,11 +48,9 @@ class loginPageContainer extends React.Component {
 
     shakeNegativeDirectionHandler = (value) => {
         this.newLoginElement.current.focus();
-        /*this.onTabIndexChange(this.props.tabIndex + 1)*/
     }
     shakePositiveDirectionHandler = (value) => {
         this.newPasswordElement.current.focus();
-        /*this.onTabIndexChange(this.props.tabIndex + 1)*/
     }
     onTabIndexChange = (num) => {
         this.props.updateTabIndex(num);
@@ -102,12 +100,20 @@ class loginPageContainer extends React.Component {
             newPasswordElement={this.newPasswordElement}
             newLoginElement={this.newLoginElement}
             tabIndex={this.props.tabIndex}
+            passwordField={this.props.passwordField}
+            loginField={this.props.loginField}
+            passwordPlaceholder={this.props.passwordPlaceholder}
+            loginPlaceholder={this.props.loginPlaceholder}
         />
     }
 }
 
 let mapStateToProps = (state) => {
     return {
+        passwordPlaceholder: state.LoginPage.LoginData.passwordData.placeholder,
+        loginPlaceholder: state.LoginPage.LoginData.loginData.placeholder,
+        passwordField: state.LoginPage.LoginData.passwordData.field,
+        loginField: state.LoginPage.LoginData.loginData.field,
         enteredPassword: state.LoginPage.enteredPassword,
         enteredLogin: state.LoginPage.enteredLogin,
         showingPassword: state.LoginPage.showingPassword,
@@ -117,5 +123,6 @@ let mapStateToProps = (state) => {
 }
 
 const LoginPageContainer = connect(mapStateToProps,
-    {updateEnteredPassword, updateEnteredLogin, showPassword, hidePassword, removeEnteredPassword, updateSelectionStart, updateTabIndex})(loginPageContainer);
+    {updateEnteredPassword, updateEnteredLogin, showPassword, hidePassword,
+        removeEnteredPassword, updateSelectionStart, updateTabIndex})(loginPageContainer);
 export default LoginPageContainer;
